@@ -13,13 +13,14 @@
 
 .nombre {
     background-color: var(--color_Principal);
+    margin-bottom: -0.5rem;
 }
 
 .menu_nav {
-    width: 60%;
-    margin: auto;
     background: var(--color_Secundario);
     display: block;
+    margin-bottom:-1rem ;
+    padding: 10px;
 }
 
 .menu_nav ul li {
@@ -32,7 +33,8 @@
 
 .menu_nav ul li a:hover,
 .active {
-    background: gray;
+    background: var(--color_Principal);
+    text-decoration: none;
 }
 
 footer {
