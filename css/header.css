@@ -1,6 +1,9 @@
 :root {
+    --color_Principal_Fuente:black;
+    --color_Secundario_Fuente:white;
+
     --color_Principal: rgb(127, 208, 255);
-    --color_Secundario: rgb(99, 219, 179);
+    --color_Secundario: rgb(38, 78, 255);
 }
 
 * {
@@ -40,8 +43,8 @@
 .menu_nav ul li a {
     padding: 13px;
     font-size:18px;
-    font-weight: bold;
-    color:black;
+    font-weight:600;
+    color: var(--color_Secundario_Fuente);
 }
 
 .menu_nav ul li a:hover,
