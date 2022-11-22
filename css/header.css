@@ -16,6 +16,7 @@
 .top {
     margin-bottom: -0.5rem;
     padding: 20px;
+    background: cyan;
 }
 .top img{
     width: 200px;
