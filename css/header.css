@@ -1,6 +1,6 @@
 :root {
-    --color_Principal: aquamarine;
-    --color_Secundario: pink;
+    --color_Principal: rgb(127, 208, 255);
+    --color_Secundario: rgb(99, 219, 179);
 }
 
 * {
@@ -10,15 +10,22 @@
     text-decoration: none;
     list-style: none;
 }
-
-.nombre {
+.top {
     background-color: var(--color_Principal);
     margin-bottom: -0.5rem;
+    padding: 20px;
+}
+.ingresar{
+    display: flex;
+    float: right;
+    margin-top: -70px;
+}
+.ingresar a{
+    padding: 0px 8px;
 }
 
 .menu_nav {
     background: var(--color_Secundario);
-    display: block;
     margin-bottom:-1rem ;
     padding: 10px;
 }
@@ -28,17 +35,14 @@
 }
 
 .menu_nav ul li a {
-    padding: 10px;
+    padding: 13px;
+    font-size:18px;
+    font-weight: bold;
+    color:black;
 }
 
 .menu_nav ul li a:hover,
 .active {
-    background: var(--color_Principal);
-    text-decoration: none;
+    text-decoration: underline 2px;
 }
 
-footer {
-    text-align: center;
-    color: white;
-    background: black;
-}
