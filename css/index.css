@@ -1,4 +1,4 @@
 #carouselExampleCaptions img{
-    height: calc(100vh - 200px);
+    height: 50vh;
     margin: auto;
 }

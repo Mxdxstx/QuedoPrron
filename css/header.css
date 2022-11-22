@@ -16,7 +16,6 @@
 .top {
     margin-bottom: -0.5rem;
     padding: 20px;
-    background: cyan;
 }
 .top img{
     width: 200px;
@@ -33,7 +32,7 @@
 
 .menu_nav {
     background: var(--color_Secundario);
-    margin-bottom:-1rem ;
+    margin-bottom:0 ;
     padding: 10px;
 }
 
