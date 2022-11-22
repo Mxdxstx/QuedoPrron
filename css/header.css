@@ -11,9 +11,11 @@
     list-style: none;
 }
 .top {
-    background-color: var(--color_Principal);
     margin-bottom: -0.5rem;
     padding: 20px;
+}
+.top img{
+    width: 200px;
 }
 .ingresar{
     display: flex;
@@ -22,6 +24,7 @@
 }
 .ingresar a{
     padding: 0px 8px;
+    font-weight: bold;
 }
 
 .menu_nav {
