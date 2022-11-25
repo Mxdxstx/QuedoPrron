@@ -1,0 +1,13 @@
+*{
+    text-decoration: none;
+}
+a{
+    text-decoration: none;
+}
+.card{
+    width: 18rem;
+    height: 400px;
+}
+.card-body>p{
+    height: 70px;
+}
