@@ -32,8 +32,9 @@
 
 .menu_nav {
     background: var(--color_Secundario);
-    margin-bottom:0 ;
+    margin-bottom:20px ;
     padding: 10px;
+    box-shadow: 0px 5px 10px 1px black;
 }
 
 .menu_nav ul li {
@@ -52,3 +53,9 @@
     text-decoration: underline 2px;
 }
 
+
+@media(max-width:800px){
+    .top img{
+        width: 150px;
+    }
+}

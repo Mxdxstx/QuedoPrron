@@ -2,3 +2,16 @@
     height: 50vh;
     margin: auto;
 }
+.main{
+    width: 50%;
+    margin:auto;
+}
+@media(max-width:800px){
+    p, li,a, label{
+        font-size: 70%;
+    }
+    #carouselExampleCaptions img{
+        height: 25vh;
+        margin: auto;
+    }
+}
