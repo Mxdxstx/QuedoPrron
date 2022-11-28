@@ -59,9 +59,11 @@
 }
 .checkbtn{
     float: right;
-    margin: -30px 20px;
+    margin: -10px 20px;
     font-size: 23px;
-    color:red;
+    color:var(--color_Secundario_Fuente);
+    z-index: 3;
+    visibility: hidden;
 }
 
 
@@ -71,20 +73,23 @@
     }
 
     /*Barra nav*/
-    .checkbtn{display: block;}
+    .checkbtn{
+        display: block;
+        visibility: visible;
+    }
     .menu_nav{
         position: fixed;
-        background: #414141;
-        height: calc(100vh - 80px);
+        background:var(--color_Secundario);
+        height: calc(50vh);
         width: 100vw;
-        text-align: center;
+        text-align: right;
         left: -100%;
         transition: all .3s;
-
+        border-radius: 10px;
     }
 
     .menu_nav li a{
-        font-size: 20px;
+        font-size: 30px;
     }
     .menu ul li{
         display: block;
@@ -93,13 +98,6 @@
 
     }
     #check:checked ~ .menu_nav{
-        left: 0;
-    }
-
-    #main{
-        background-repeat: no-repeat;
-        background-size: 500%;
-        background-attachment:fixed;
-        height: 1000px;
+        left: -65%;
     }
 }

@@ -51,7 +51,7 @@ footer{
         font-size: 70%;
         line-height: 20px;
     }
-    label{
+    footer label{
         visibility: hidden;
     }
     footer, .main{
