@@ -40,7 +40,7 @@ footer{
     color:white;
 }
 
-@media(max-width:800px){
+@media(max-width:874px){
   
     footer label{
         font-size: 80%;

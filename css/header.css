@@ -67,7 +67,7 @@
 }
 
 
-@media(max-width:870px){
+@media(max-width:874px){
     .top img{
         width: 150px;
     }
@@ -90,6 +90,9 @@
     .menu ul li{
         display: block;
         line-height: 100px;
+    }
+    .menu_nav ul li a{
+        font-size: 30px;
     }
     #check:checked ~ .menu_nav{
         right: 0%;
