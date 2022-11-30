@@ -16,6 +16,7 @@
 .top {
     margin-bottom: -0.5rem;
     padding: 0px 25px 10px 25px;
+    background-color: white;
 }
 .top img{
     width: 200px;
@@ -67,7 +68,7 @@
 }
 
 
-@media(max-width:874px){
+@media(max-width:870px){
     .top img{
         width: 150px;
     }
@@ -90,9 +91,6 @@
     .menu ul li{
         display: block;
         line-height: 100px;
-    }
-    .menu_nav ul li a{
-        font-size: 30px;
     }
     #check:checked ~ .menu_nav{
         right: 0%;
