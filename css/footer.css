@@ -9,11 +9,8 @@
 footer{
     width: 50%;
     margin: auto;
-    line-height: 40px;
-}
-.footer1{
-    display: flex;
-    justify-content: space-between;
+    font-size: 16px;
+    text-align: center;
 }
 .icon{
     color: var(--color_Secundario);
@@ -29,7 +26,6 @@ footer{
 .icon-facebook:hover{
     background: var(--color_Secundario); 
     color: var(--color_Secundario_Fuente);
-    padding: 10px;
     text-decoration: none;
 }
 .icon-instagram{
@@ -42,16 +38,12 @@ footer{
     text-decoration: none;
     background-color: palevioletred;
     color:white;
-    padding: 10px;
 }
 
 @media(max-width:800px){
-    p, li,a, b{
-        font-size: 70%;
-        line-height: 20px;
-    }
+  
     footer label{
-        visibility: hidden;
+        font-size: 80%;
     }
     footer, .main{
         width: 70%;
