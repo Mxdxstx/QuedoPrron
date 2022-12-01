@@ -1,0 +1,23 @@
+.main{
+    width:50%;
+    margin: auto;
+
+}
+
+.agendar{
+    margin:20px 0 40px 0;
+
+    padding: 20px;
+    box-shadow: 5px 5px 10px 1px black;
+    display: grid;
+    background: var(--color_Secundario);
+    color: var(--color_Secundario_Fuente);
+}
+
+.btn_enviar{
+    width: 100px;
+    color: var(--color_Secundario);
+    background:var(--color_Secundario_Fuente) ;
+    border-color: var(--color_Secundario_Fuente);
+    border-radius: 1px;
+}
