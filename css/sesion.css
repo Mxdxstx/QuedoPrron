@@ -62,3 +62,7 @@ button{
 .forgot a{
     color: black;
 }
+
+.menu_nav{
+    z-index: 2;
+}
