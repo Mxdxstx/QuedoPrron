@@ -21,7 +21,7 @@
                 </a>
             </div>
             <div class="ingresar">
-                <a href="sesion.html">Ingresar</a>
+                <a href="#">Ingresar</a>
                 <P> | </P>
                 <a href="#">Registrarse</a>
             </div>
@@ -53,39 +53,44 @@
         
         <h3>Agenda tu cita</h3>
         <form class="agendar" action="">
-            <div>
-                <p>Nombre de tu mascota: <br>
-                <input type="text" name="nom_mascota" id="nom_mascota">
-                </p>
+            <div class="datos">
+                <div>
+                    <p>Nombre de tu mascota: <br>
+                    <input type="text" name="nom_mascota" id="nom_mascota">
+                    </p>
+                </div>
+                <div>
+                    <p>Raza: <br>
+                    <input type="text" name="raza" id="raza">
+                    </p>
+                </div>
+                <div>
+                    <p>Servicio: <br>
+                    <select name="servicio" id="servicio">
+                        <option value="Corte_Mini">Corte Mini</option>
+                        <option value="Corte_Mediano">Corte Mediano</option>
+                        <option value="Corte_Grande">Corte Grande</option>
+                        <option value="Limpeza_Basica">Limpieza Básica</option>
+                        <option value="Limpeza_Profunda">Limpieza Profunda</option>
+                        <option value="Limpeza_Perrona">Limpieza Perrona</option>
+                        <option value="Limpieza_Oido">Limpieza de Oído</option>
+                        <option value="Corte_Unas">Corte de uñas</option>
+                        <option value="Limpieza_Dental">Limpieza Dental</option>
+                    </select>
+                    </p>
+                </div>
+                <div>
+                    <p>
+                        Fecha: <br>
+                        <input type="date" name="fecha" id="fecha">
+                    </p>
+                </div>
+                <input class ="btn_enviar" type="submit" value="Registrar cita">
             </div>
-            <div>
-                <p>Raza: <br>
-                <input type="text" name="raza" id="raza">
-                </p>
+            <div class="imagen">
+                <img src="imagenes/agenda.png" alt="Imagen de agenda">
             </div>
-            <div>
-                <p>Servicio: <br>
-                <select name="servicio" id="servicio">
-                    <option value="Corte_Mini">Corte Mini</option>
-                    <option value="Corte_Mediano">Corte Mediano</option>
-                    <option value="Corte_Grande">Corte Grande</option>
-                    <option value="Limpeza_Basica">Limpieza Básica</option>
-                    <option value="Limpeza_Profunda">Limpieza Profunda</option>
-                    <option value="Limpeza_Perrona">Limpieza Perrona</option>
-                    <option value="Limpieza_Oido">Limpieza de Oído</option>
-                    <option value="Corte_Unas">Corte de uñas</option>
-                    <option value="Limpieza_Dental">Limpieza Dental</option>
-                </select>
-                </p>
-            </div>
-            <div>
-                <p>
-                    Fecha: <br>
-                    <input type="date" name="fecha" id="fecha">
-                </p>
-            </div>
-            <input class ="btn_enviar" type="submit" value="Enviar">
-           </form>
+        </form>
 
     </section>
     <footer>
