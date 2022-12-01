@@ -1,29 +1,45 @@
 <?php
     class CConexion {
 
-        public static function ConexionBD(){
+        public static function IniciarSesion(){
             $host = "localhost";
             $dbname = "estetica_qp";
             $username = "postgres";
             $pasword = "miguel";
 
-            try{
-                $conn = new PDO ("pgsql:host=$host; dbname=$dbname", $username, $pasword);
-                echo "Enlace a la Base de Datos realizado correctamente<br>";
-            }
-            catch( PDOException $exp){
-                echo ("No se pudo enlazar con la base de datos, $exp");
-            }
+            $correo;
+            $contrasena;
 
-            $sql='Select * FROM servicios';
-            foreach($conn->query($sql) as $row){
-                print $row['id_servicio']."\t";
-                print $row['nombre']."\t";
-                print $row['descripcion']."\t";
-                print $row['precio']."\t";
-                echo"<br>";
-            }
+            $correotemp;
+            $contrasenatemp;
 
+            if($_POST){
+                $correo = $_POST["correo"];
+                $contrasena = $_POST["contrasena"];
+                if($correo!="" || $contrasena!=""){
+                    try{
+                        $conn = new PDO ("pgsql:host=$host; dbname=$dbname", $username, $pasword);
+                    }
+                    catch( PDOException $exp){
+                        echo ("No se pudo enlazar con la base de datos, $exp");
+                    }            
+                        $sql="SELECT * FROM clientes WHERE correo='$correo' AND contrasena='$contrasena'";
+                        $conn->query($sql);
+
+                        foreach($conn->query($sql) as $row){
+                            $correotemp = $row['correo'];
+                            $contrasenatemp = $row['contrasena'];
+                        }
+
+                        if($correo == $correotemp && $contrasena == $contrasenatemp){
+                            echo ('<script language="javascript">alert("Iniciaste sesion");</script>');
+                        }else{
+                            echo ("no se encontrao el usuario!!");
+                        }
+                }else{
+                    echo '<script language="javascript">alert("Dejaste espacios vacios!");</script>';
+                }
+            }
         }
 
         public static function registrarcliente(){
