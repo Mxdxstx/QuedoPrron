@@ -6,10 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/font.css">
     <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/sesion.css">
+    <link rel="stylesheet" href="css/registro.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous" />
-    <title>Inicio de Sesion</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <script defer src="js/registro.js"></script>
+    <title>Registrarse</title>
 </head>
 <body>
     <header class="encabezado">
@@ -20,9 +22,9 @@
                 </a>
             </div>
             <div class="ingresar">
-                <a href="sesion.html" class="active">Ingresar</a>
+                <a href="sesion.html">Ingresar</a>
                 <P> | </P>
-                <a href="registro.php">Registrarse</a>
+                <a href="registro.php" class="active">Registrarse</a>
             </div>
         </div>
         <div class="menu">
@@ -39,16 +41,57 @@
                 </ul>
                 
             </nav>
-            
         </div>
-        
     </header>
-    
+
+    <form action="registro.php" method="POST">
     <div class="modal-dialog text-center" style="z-index: 1">
-        <div class="col-sm-8 main-section">
+        <div class="col-sm-10 main-section">
             <div class="modal-content">
-                <div class="col-12 user-img">
-                    <img src="imagenes/usuario.png" alt="">
+                <div class="col-12 create-user">
+                    <h2>Crear usuario</h2>
+                </div>
+                <form class="col-12">
+                    <div class="form-group" id="user-group">
+                        <input type="email" class="form-control" placeholder="Correo" name="correo">
+                    </div>
+                    <div class="form-group" id="contrasena-group">
+                        <input type="password" class="form-control" placeholder="Contraseña" name="contrasena">
+                    </div>
+                    <div class="form-group" id="firstname-group">
+                        <input type="text" class="form-control" placeholder="Nombre" name="nombre">
+                    </div>
+                    <div class="form-group" id="firstname-group">
+                        <input type="text" class="form-control" placeholder="Apellido" name="apellido">
+                    </div>
+                    <div class="form-group" id="phone-group">
+                        <input type="tel" class="form-control" placeholder="Telefono" name="telefono">
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="create-user"> Registrarse </button>
+                </form>
+                <div class="col-12 forgot">
+                    <a href="registro.php" class="">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+
+    <?php
+        if(isset($_POST['correo']) && isset($_POST['contrasena']) &&
+        isset($_POST['nombre']) && isset($_POST['apellido'])
+        && isset($_POST['telefono'])){
+            include_once("conexion.php");
+            CConexion::registrarcliente();
+        }
+    ?>
+    
+    <!--
+    <div class="modal-dialog text-center" style="z-index: 1">
+        <div class="col-sm-10 main-section">
+            <div class="modal-content">
+                <div class="col-12 create-user">
+                    <h2>Crear usuario</h2>
                 </div>
                 <form class="col-12">
                     <div class="form-group" id="user-group">
@@ -57,17 +100,24 @@
                     <div class="form-group" id="contrasena-group">
                         <input type="password" class="form-control" placeholder="Contraseña">
                     </div>
-                    <button type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i>  Ingresar </button>
+                    <div class="form-group" id="firstname-group">
+                        <input type="password" class="form-control" placeholder="Nombre">
+                    </div>
+                    <div class="form-group" id="firstname-group">
+                        <input type="password" class="form-control" placeholder="Apellido">
+                    </div>
+                    <div class="form-group" id="phone-group">
+                        <input type="password" class="form-control" placeholder="Telefono">
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="create-user"> Crear Usuario </button>
                 </form>
                 <div class="col-12 forgot">
-                    <a href="#" class="">Recordar Contraseña</a>
-                </div>
-                <div class="col-12 forgot">
-                    <a href="registro.html" class="">Registrarse</a>
+                    <a href="sesion.html" class="">Cancelar</a>
                 </div>
             </div>
         </div>
     </div>
+    -->
 
     <footer>
         <hr>
@@ -100,7 +150,9 @@
     </footer>
 
     <script src="https://kit.fontawesome.com/0f19cc5890.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 </body>
 </html>
