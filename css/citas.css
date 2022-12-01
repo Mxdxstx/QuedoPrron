@@ -14,12 +14,22 @@
 
 .agendar{
     margin:20px 0 40px 0;
-
     padding: 20px;
     box-shadow: 5px 5px 10px 1px black;
-    display: grid;
     background: var(--color_Secundario);
     color: var(--color_Secundario_Fuente);
+    display: flex;
+    justify-content: space-around;
+}
+.agendar input, .agendar select{
+    width: 200px;
+}
+.agendar img{
+    margin: 20px auto;
+    width: 200px;
+    padding: 10px 15px;
+    border-radius:10px ;
+    background: white;
 }
 
 .btn_enviar{
@@ -28,4 +38,14 @@
     background:var(--color_Secundario_Fuente) ;
     border-color: var(--color_Secundario_Fuente);
     border-radius: 1px;
+    height: 40px;
+}
+
+@media(max-width:874px){
+    .agendar img{
+        display: none;
+    }
+    .agendar input, .agendar select{
+        width: 150px;
+    }
 }
