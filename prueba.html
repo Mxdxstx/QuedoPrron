@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script type="text/javascript">
+        function clearClickCounter(){
+            localStorage.removeItem("clickcount");
+            showClickCounter(localStorage.clickcount);
+        }
+
+        // Basic test
+        function incrementClickCounter() {
+            if(typeof(Storage) === "undefined") return alert("Sorry, your browser does not support web storage");
+            if(localStorage==null) return alert("Only accesible through HTTP server (that\'s it, on a domain)");
+            if(localStorage.clickcount) {
+                localStorage.clickcount = Number(localStorage.clickcount)+1;
+            } else {
+                localStorage.clickcount = 1;
+            }
+            showClickCounter(localStorage.clickcount);
+        }
+
+        // On change data event listener
+        // Only is triggered if this is not the tab who changed the data
+        // (except IE, who triggers the event in all tabs)
+        window.addEventListener('storage', function(e){
+            var attributeChanged = e.key;
+            var newValue = e.newValue;
+            var oldValue = e.oldValue;
+            console.log('Atribute \'' + e.key + '\' of localStorage has changed on another tab! We should read it!');
+            if(attributeChanged === 'clickcount'){
+                showClickCounter(newValue);
+            }
+        });
+
+        function showClickCounter(value){
+            if(value==null){
+                document.getElementById("result").innerHTML = '';
+            }else{
+                document.getElementById("result").innerHTML = "You have clicked the button " + value + " time(s) in this session.";
+            }
+        }
+
+        // Maximum storage test (stress test)
+        //src: https://stackoverflow.com/questions/3027142/calculating-usage-of-localstorage-space
+        function stressTest(){
+            // STRESS_DATA is cleared?
+            if(localStorage.STRESS_DATA==null)
+                console.log('localStorage.STRESS_DATA is empty');
+            else
+                console.log('localStorage.STRESS_DATA is NOT empty')
+            // "data" should reach 4096K
+            var data = "a";
+            var i = 0;
+            while(true){
+                try { 
+                    localStorage.setItem("STRESS_DATA", data);
+                    data += data;
+                }catch(e) {
+                    console.log(e);
+                    var storageSize = Math.round(JSON.stringify(localStorage).length / 1024);
+                    console.log("LIMIT REACHED: (" + i + ") " + storageSize + "K");
+                    console.log(e.code);
+                    console.log(e.name);
+                    //Google Chrome
+                    //Safari
+                    //IE, Edge
+                    if(e.code == 22 && e.name== "QuotaExceededError"){
+                        alert("localStorage (WebStorage): Cannot store more data, limit reached");
+                    //Firefox
+                    }else if(e.code == 1014 && e.name == "NS_ERROR_DOM_QUOTA_REACHED"){
+                        alert("localStorage (WebStorage): Cannot store more data, limit reached");
+                    }
+                    break;
+                }
+                i++;
+            }
+            localStorage.removeItem("STRESS_DATA");
+        }
+    </script>
+</head>
+<body>
+    <button onclick="incrementClickCounter()">Clicks++</button>
+    <br>
+    <button onclick="clearClickCounter()">Reiniciar contador</button>
+    <br><br>
+    <button onclick="stressTest()">Llenar localStorage</button>
+<div id="result"></div>
+<p>Abre dos pestañas para ver que se actualiza el contenido (el contador de clicks) en ambas</p>
+<p>Pulsa en la prueba de estrés para provocar que se llene el localstorage</p>
+</body>
+</html>
