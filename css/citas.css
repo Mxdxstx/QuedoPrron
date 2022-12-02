@@ -5,9 +5,17 @@
     --color_Principal: rgb(127, 208, 255);
     --color_Secundario: rgb(38, 78, 255);
 }
-
+.consulta_citas input{
+    margin: 15px 0;
+}
+.btn_consultar{
+    padding: 5px;
+    color: var(--color_Secundario_Fuente);
+    background: var(--color_Secundario);
+    border-color: var(--color_Secundario);
+}
 .main{
-    width:50%;
+    width:50%; 
     margin: auto;
 
 }

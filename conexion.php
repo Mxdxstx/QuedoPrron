@@ -1,10 +1,10 @@
 <?php
     class CConexion {
-        public static function IniciarSesion(){
-            $host = "localhost";
-            $dbname = "estetica_qp";
-            $username = "postgres";
-            $pasword = "miguel";
+        public static function consultarCita(){
+            $host = "dpg-ce4fsdha6gdivt60e090-a.oregon-postgres.render.com";
+            $dbname = "prueba1_9ceo";
+            $username = "prueba1_9ceo_user";
+            $pasword = "PUSaKh8Rt3HZBsufsp1cnhvJTAuqjoCn";
 
             $idcita="";
 
@@ -30,20 +30,19 @@
 
                         if($idcita == $idcitatemp){
                             $html="";
-                            echo ('<script language="javascript">alert("Iniciaste sesion");</script>');
                             foreach($conn->query($sql) as $row){
-                                print $row['id_cita']."<br>";
-                                print $row['correo']."<br>";
-                                print $row['fecha']."<br>";
-                                print $row['nombre_mascota']."<br>";
-                                print $row['raza_mascota']."<br>";
-                                print $row['nombre']."<br>";
-                                print $row['precio']."<br>";
+                                print "<br> <b>No. de cita: </b>".$row['id_cita']."<br>";
+                                print "<b>Correo: </b>".$row['correo']."<br>";
+                                print "<b>Fecha: </b>".$row['fecha']."<br>";
+                                print "<b>Nombre de la mascota: </b>".$row['nombre_mascota']."<br>";
+                                print "<b>Raza: </b>".$row['raza_mascota']."<br>";
+                                print "<b>Servicio: </b>".$row['nombre']."<br>";
+                                print "<b>Precio: </b>$". $row['precio']." MXN<br>";
                             }
 
 
                         }else{
-                            echo ('<script language="javascript">alert("no se encontrao el usuario!!");</script>');
+                            echo ('<script language="javascript">alert("No se ha encontrado la cita ingresada");</script>');
                         }
                 }else{
                     echo '<script language="javascript">alert("Dejaste espacios vacios!");</script>';
@@ -52,10 +51,10 @@
         }
 
         public static function registrarcita(){
-            $host = "localhost";
-            $dbname = "estetica_qp";
-            $username = "postgres";
-            $pasword = "miguel";
+            $host = "dpg-ce4fsdha6gdivt60e090-a.oregon-postgres.render.com";
+            $dbname = "prueba1_9ceo";
+            $username = "prueba1_9ceo_user";
+            $pasword = "PUSaKh8Rt3HZBsufsp1cnhvJTAuqjoCn";
 
             $correo;
             $nombre_mascota;
@@ -86,6 +85,19 @@
 
                                 $sql=$conn->prepare($sql);
                                 $sql->execute();
+                                
+                                echo '
+                                <script language="javascript">alert("Cita registrada con éxito");</script>
+                                ';
+
+                                $sql_id_cita = "SELECT id_cita FROM citas WHERE correo='$correo' AND fecha = '$fecha'
+                                AND id_servicio = '$id_servicio' AND nombre_mascota = '$nombre_mascota' AND raza_mascota = '$raza'";
+                               echo"<h4>Los datos de su cita son</h4>";
+                               foreach($conn->query($sql_id_cita) as $row){
+                                    print "<br> <b>No. de cita: </b>".$row['id_cita']."<br>";
+                                }
+                               
+                               
                             }else{
                                 echo '<script language="javascript">alert("Dejaste espacios vacios!");</script>';
                             }

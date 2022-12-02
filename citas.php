@@ -20,11 +20,7 @@
                     <img src="imagenes/logo.png" alt="Quedo perron logo">
                 </a>
             </div>
-            <div class="ingresar">
-                <a href="sesion.php">Ingresar</a>
-                <P> | </P>
-                <a href="registro.php">Registrarse</a>
-            </div>
+             
         </div>
         <div class="menu">
             <input type="checkbox" id="check">
@@ -46,21 +42,20 @@
     </header>
     <section class="main">
         <form action="citas.php" method="POST">
-            <div class="citas">
+            <div class="consulta_citas">
                 <h2>Consulta tus citas</h2>
                 <p>Ingresa tu numero de cita</p>
                 <input type="text" class="form-control" name="id_cita" placeholder="No. Cita" id="id_cita">
-                <input type="submit" value="Consultar">
+                <input type="submit" class="btn_consultar" value="Consultar">
 
                 <?php
                     if(isset($_POST['id_cita'])){
                         include_once("conexion.php");
-                        CConexion::IniciarSesion();
+                        CConexion::consultarCita();
                     }
                 ?>
             </div>
         </form>
-
         <hr>
         
         <h3>Agenda tu cita</h3>
